@@ -1,0 +1,4 @@
+﻿barrier_category,estimate,lcl,ucl,p_value,n,model_type
+Financial barrier,0.100,0.026,0.174,0.008,10503,weighted linear model with HC3 robust SE
+Structural or information barrier,0.018,-0.029,0.066,0.446,10503,weighted linear model with HC3 robust SE
+Attitudinal barrier,-0.070,-0.125,-0.014,0.013,10503,weighted linear model with HC3 robust SE

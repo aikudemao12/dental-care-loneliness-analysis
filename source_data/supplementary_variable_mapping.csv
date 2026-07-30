@@ -1,0 +1,27 @@
+﻿Dataset,Construct,Variable name(s),Derivation,Analytic role,Missingness handling
+SHARE,Childhood dental care,rh016_,Adverse component = no regular childhood dental care,Exposure component,Component missing if rh016_ missing; score required at least three observed components
+SHARE,Adult regular-care pattern,rh015_; rh018_,Adverse component = not both ever and current adult regular dental care,Exposure component,Component missing if both adult variables missing
+SHARE,Regular-care start age,rh017_; rabyear,Start age = rh017_ - rabyear; adverse component = start age >25 or absent adult regular care,Exposure component,Invalid start ages <0 or >100 set missing before coding
+SHARE,Lifetime postponement,rh788_,Adverse component = lifetime postponement of dental visits,Exposure component,Component missing if rh788_ missing
+SHARE,Life-course disadvantage score,Derived from four components,"Sum of adverse components when at least three components observed; grouped as low 0-1, mid 2, high 3-4",Primary exposure,Missing when fewer than three components observed
+SHARE,Loneliness,r8lnlys3,Wave 8 three-item loneliness score; higher values indicate greater loneliness,Primary outcome,Complete-case required for primary model
+SHARE,Age,r7agey,Age in years at Wave 7,Covariate,Complete-case required
+SHARE,Sex,ragender,Female indicator derived from respondent sex,Covariate,Complete-case required
+SHARE,Education,raeducl,Three-level education variable; higher values indicate higher education,Covariate and subgroup,Complete-case required
+SHARE,Body mass index,r7bmi,Wave 7 BMI,Covariate,Complete-case required
+SHARE,Chronic disease burden,r7hibpe; r7diabe; r7cancre; r7lunge; r7hearte; r7stroke; r7arthre; r7psyche; r7hchole; r7parkine; r7catracte; r7ulcere; r7kidneye,Count of Wave 7 chronic condition indicators,Covariate,Complete-case required for count
+SHARE,Country,country,Country fixed effects,Context adjustment,Complete-case required
+SHARE,Respondent weight,r8wtresp,Wave 8 respondent weight used as provided,Weight,Missing or nonpositive weights excluded
+SHARE,Marital status,r7mstat,Married or partnered indicator,Attenuation covariate,Used in current-sample attenuation model
+SHARE,Wave 6 proxy series,r6smokev; r6drinkxw; r6eurod; r6lnlys3,"Ever smoked, drinking frequency, EURO-D score and prior loneliness",Fixed proxy attenuation,Restricted to participants with all proxy variables observed
+SHARE,Financial barriers,rh026d1-rh026d3,Any financial barrier among the listed barrier items,Barrier analysis,Barrier models restricted to participants with dental-care disadvantage
+SHARE,Structural or information barriers,rh026d4; rh026d5; rh026d7,Any structural or information barrier among listed items,Barrier analysis,Barrier models restricted to participants with dental-care disadvantage
+SHARE,Attitudinal barriers,rh026d6; rh026d8,Any attitudinal barrier among listed items,Barrier analysis,Barrier models restricted to participants with dental-care disadvantage
+CHARLS,Dental visit,h_charls_d_data__r2dentst1y,No dental visit in the baseline dental-use window,Cohort-specific affordability proxy,Cohort-specific complete-case model
+CHARLS,Dental out-of-pocket burden,h_charls_d_data__r2oopden1y,High burden = at or above 75th percentile among nonnegative values,Cohort-specific affordability proxy,Cohort-specific complete-case model
+CHARLS,Loneliness,h_charls_d_data__r3flonel; r2flonel,Follow-up loneliness outcome with baseline loneliness adjustment where available,Cohort-specific context outcome,Cohort-specific complete-case model
+CHARLS,Respondent weight,r2wtrespb,Baseline respondent weight,Weight,Missing or nonpositive weights excluded
+KLoSA,Dental visit,r7dentst,No dental visit in the baseline dental-use window,Cohort-specific affordability proxy,Cohort-specific complete-case model
+KLoSA,Dental out-of-pocket burden,r7oopden,High burden = at or above 75th percentile among nonnegative values,Cohort-specific affordability proxy,Cohort-specific complete-case model
+KLoSA,Loneliness,r8flonel; r7flonel,Follow-up loneliness outcome with baseline loneliness adjustment where available,Cohort-specific context outcome,Cohort-specific complete-case model
+KLoSA,Respondent weight,r7wtresp,Baseline respondent weight,Weight,Missing or nonpositive weights excluded

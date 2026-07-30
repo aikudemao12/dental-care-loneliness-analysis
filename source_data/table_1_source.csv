@@ -1,0 +1,26 @@
+﻿Characteristic,Overall,Low (0-1),Mid (2),High (3-4)
+Sample,,,,
+Unweighted N,"30,908","17,818","10,663","2,427"
+"Weighted sample share, %",100.0,48.8,39.4,11.8
+Countries represented,26,26,26,26
+Exposure construction,,,,
+Mean disadvantage score,1.27 (1.10),0.24 (0.43),2.00 (0.00),3.10 (0.30)
+"No regular childhood dental care, %",37.8,20.2,71.1,91.6
+"No stable adult regular care, %",41.1,0.3,75.9,93.3
+"Late/absent uptake of regular care, %",50.6,0.0,98.5,100.0
+"Lifetime dental postponement, %",9.3,3.9,1.4,58.1
+Sociodemographic profile,,,,
+"Age, years",63.4 (9.4),62.7 (8.8),64.5 (10.0),62.5 (9.5)
+"Age 65 years or older, %",38.3,35.7,42.8,34.5
+"Female, %",53.3,58.6,46.3,55.0
+"Education level, mean (SD)",1.84 (0.74),2.08 (0.71),1.67 (0.71),1.46 (0.64)
+"Lower education, %",79.3,70.7,86.1,92.0
+"Married or partnered, %",70.0,70.3,70.4,67.0
+"South/east Europe, %",56.4,42.0,67.9,77.2
+Health and data availability,,,,
+Chronic disease burden,1.75 (1.58),1.66 (1.55),1.79 (1.60),1.97 (1.61)
+Body mass index,27.0 (4.7),26.7 (4.6),27.2 (4.6),27.0 (5.0)
+"BMI 30 or higher, %",21.8,20.6,23.6,20.6
+"Wave 6 complete proxy subset available, %",65.3,71.2,57.5,56.1
+Outcome context,,,,
+Wave 8 loneliness,1.32 (0.47),1.26 (0.42),1.35 (0.50),1.47 (0.54)

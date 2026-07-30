@@ -1,0 +1,28 @@
+﻿Analysis,Measure,Estimate,P value,N
+Primary SHARE association,,,,
+Mid disadvantage vs low,β coefficient (95% CI),"0.042 (0.015, 0.070)",0.003,"30,908"
+High disadvantage vs low,β coefficient (95% CI),"0.153 (0.092, 0.214)",<0.001,"30,908"
+Per 1-point score,β coefficient (95% CI),"0.038 (0.023, 0.052)",<0.001,"30,908"
+Score specification,,,,
+"Score 1 vs 0 (n=3,393; 11.9%)",β coefficient (95% CI),"0.017 (-0.021, 0.056)",0.384,"30,908"
+"Score 2 vs 0 (n=10,663; 39.4%)",β coefficient (95% CI),"0.047 (0.019, 0.075)",<0.001,"30,908"
+"Score 3 vs 0 (n=2,246; 10.7%)",β coefficient (95% CI),"0.175 (0.111, 0.238)",<0.001,"30,908"
+Score 4 vs 0 (n=181; 1.1%),β coefficient (95% CI),"-0.001 (-0.139, 0.137)",0.988,"30,908"
+Exposure-component support sensitivity,,,,
+"All four components observed, mid vs low",β coefficient (95% CI),"0.041 (0.003, 0.080)",0.037,"22,991"
+"All four components observed, high vs low",β coefficient (95% CI),"0.106 (0.033, 0.179)",0.005,"22,991"
+High-disadvantage attenuation,,,,
+"Age, sex, country",β coefficient (95% CI),"0.197 (0.133, 0.261)",<0.001,"30,908"
+"M1 + education, BMI, chronic burden",β coefficient (95% CI),"0.153 (0.092, 0.214)",<0.001,"30,908"
+M2 + married/partnered,β coefficient (95% CI),"0.146 (0.083, 0.209)",<0.001,"30,895"
+Fixed Wave 6 proxy + prior loneliness,β coefficient (95% CI),"0.097 (0.026, 0.169)",0.008,"20,180"
+Subgroup and contextual affordability analyses,,,,
+"Non-higher education, high vs low",β coefficient (95% CI),"0.177 (0.107, 0.247)",<0.001,"23,657"
+"Higher education, high vs low",β coefficient (95% CI),"0.088 (-0.007, 0.183)",0.068,"7,251"
+SHARE financial barrier,Cohort-specific β coefficient (95% CI),"0.100 (0.026, 0.174)",0.008,"10,503"
+SHARE structural/information barrier,Cohort-specific β coefficient (95% CI),"0.018 (-0.029, 0.066)",0.446,"10,503"
+SHARE attitudinal barrier,Cohort-specific β coefficient (95% CI),"-0.070 (-0.125, -0.014)",0.013,"10,503"
+CHARLS high dental out-of-pocket burden,Cohort-specific β coefficient (95% CI),"0.587 (0.466, 0.709)",<0.001,"8,361"
+CHARLS no dental visit,Cohort-specific β coefficient (95% CI),"0.028 (-0.032, 0.087)",0.359,"8,487"
+KLoSA high dental out-of-pocket burden,Cohort-specific β coefficient (95% CI),"0.377 (0.216, 0.538)",<0.001,"6,204"
+KLoSA no dental visit,Cohort-specific β coefficient (95% CI),"0.073 (0.029, 0.117)",0.001,"6,210"

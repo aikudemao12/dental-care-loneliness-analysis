@@ -1,0 +1,8 @@
+__pycache__/
+*.py[cod]
+.venv/
+analysis_code/data/
+analysis_code/outputs/
+*analysis_dataset.csv
+*context_dataset.csv
+*validation_dataset.csv

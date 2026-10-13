@@ -1,7 +1,7 @@
 ﻿construct,variable_name,definition
 Exposure component,rh016_,No regular childhood dental care
 Exposure component,rh015_; rh018_,No stable adult regular care
-Exposure component,rh017_; rabyear,Late or absent uptake of regular care
+Exposure component,rh017_; rabyear,Late uptake or non-continuous regular care
 Exposure component,rh788_,Lifetime postponement
 Outcome,r8lnlys3,Wave 8 loneliness
 Weight,r8wtresp,Wave 8 respondent weight; missing/nonpositive excluded

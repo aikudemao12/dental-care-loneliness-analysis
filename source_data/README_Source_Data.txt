@@ -20,4 +20,14 @@ Supplementary figure and table source data:
 - share_all_four_exposure_components_sensitivity.csv provides the sensitivity analysis restricted to participants with all four exposure components observed.
 - table_1_source.csv and table_2_source.csv provide aggregate data for the main manuscript tables.
 
-The CHARLS and KLoSA source data provide cohort-specific contextual affordability analyses. These analyses use dental-access measures that differ from the SHARE life-course dental-care exposure.
+The CHARLS and KLoSA source data provide cohort-specific contextual affordability analyses. These analyses use dental-access measures that differ from the SHARE life-course dental-care exposure. CHARLS models include Wave 2 respondents aged 45 years or older. High out-of-pocket burden is defined at the cohort-specific 75th percentile among strictly positive costs (600 RMB in CHARLS; 100 units of 10,000 Korean won in KLoSA), with zero costs retained as the reference. The CHARLS and KLoSA loneliness variables are single CES-D items, not the SHARE three-item R-UCLA score; CESD-10 is the separate 10-item depression scale.
+
+Aggregate numeric values retain the available analysis precision. Manuscript tables and figure labels display estimates rounded to three decimal places; for example, the KLoSA CESD-10 upper confidence limit is shown as 0.186.
+
+Revision source checks:
+- share_age_threshold_sensitivity.csv: reported age65/75 SHARE model estimates.
+- share_education_by_disadvantage.csv: education-by-disadvantage counts, weighted within-education proportions and weighted loneliness means.
+- share_postponement_count_audit.csv: low-group RH789 aggregate count audit, retaining raw0 and999 values descriptively.
+- share_component_observation_support.csv: three/four-observed-component support and never-regular-care counts.
+
+The third score component is labelled late uptake or non-continuous regular care; its scientific algorithm and existing SHARE estimates are unchanged.

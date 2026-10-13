@@ -10,11 +10,17 @@ if str(PROJECT_ROOT) not in sys.path:
     sys.path.insert(0, str(PROJECT_ROOT))
 
 from config.paths import PATHS
-from scripts.statistical_helpers import positive_weight_complete_case, weighted_linear_model, write_results
+from scripts.statistical_helpers import (
+    positive_cost_burden,
+    positive_weight_complete_case,
+    weighted_linear_model,
+    write_results,
+)
 
 
 def main() -> None:
     frame = pd.read_csv(PATHS.klosa_analytic, low_memory=False)
+    frame["high_oopden_r7"], oop_threshold = positive_cost_burden(frame["oopden_r7"])
     rows = []
     covariates = ["age_r7", "female", "education_level", "married_partnered", "bmi", "current_smoker", "drink_level"]
     for exposure in ["no_dental_visit_r7", "high_oopden_r7"]:
@@ -31,7 +37,9 @@ def main() -> None:
                     sample="KLoSA contextual affordability analysis",
                 )
             )
-    write_results(pd.concat(rows, ignore_index=True), PATHS.tables_root / "klosa_context_check_models.csv")
+    result = pd.concat(rows, ignore_index=True)
+    result["positive_cost_q75_10000_krw"] = oop_threshold
+    write_results(result, PATHS.tables_root / "klosa_context_check_models.csv")
 
 
 if __name__ == "__main__":

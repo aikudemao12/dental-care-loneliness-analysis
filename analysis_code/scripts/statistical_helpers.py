@@ -2,6 +2,7 @@ from __future__ import annotations
 
 from pathlib import Path
 
+import numpy as np
 import pandas as pd
 import statsmodels.formula.api as smf
 
@@ -16,6 +17,30 @@ def positive_weight_complete_case(frame: pd.DataFrame, columns: list[str], weigh
     require_columns(frame, [*columns, weight_col])
     model_frame = frame.dropna(subset=[*columns, weight_col]).copy()
     return model_frame.loc[model_frame[weight_col] > 0].copy()
+
+
+def positive_cost_quantile(cost: pd.Series, quantile: float = 0.75) -> float:
+    """Return a quantile among strictly positive, non-missing costs.
+
+    Zero-cost observations are retained in the resulting exposure as the
+    reference category; they are excluded only when the threshold is formed.
+    Negative values are treated as invalid and therefore excluded.
+    """
+    values = pd.to_numeric(cost, errors="coerce")
+    positive = values.gt(0)
+    if not positive.any():
+        raise ValueError("Cannot define a positive-cost quantile: no strictly positive costs were observed.")
+    return float(values.loc[positive].quantile(quantile))
+
+
+def positive_cost_burden(cost: pd.Series, quantile: float = 0.75) -> tuple[pd.Series, float]:
+    """Code high burden at a positive-cost quantile while preserving zeros."""
+    values = pd.to_numeric(cost, errors="coerce")
+    threshold = positive_cost_quantile(values, quantile)
+    burden = pd.Series(np.nan, index=values.index, dtype=float)
+    valid = values.ge(0)
+    burden.loc[valid] = values.loc[valid].ge(threshold).astype(float)
+    return burden, threshold
 
 
 def weighted_linear_model(

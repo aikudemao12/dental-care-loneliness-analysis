@@ -1,9 +1,9 @@
 ﻿panel,outcome_label,display_label,term,estimate,lcl,ucl,p_value,n,model_type,sort_order,accent
 component models,Loneliness,No regular childhood care,no regular childhood dental care,0.0162850783777695,-0.02475994250466,0.0573300992601991,0.4367824644515301,22991,weighted linear model with HC3 robust SE,0,#C44D58
 component models,Loneliness,No stable adult regular care,no stable adult regular care,0.0416530619380335,-0.0277566445076796,0.1110627683837466,0.2395218455445478,22991,weighted linear model with HC3 robust SE,1,#C44D58
-component models,Loneliness,Late uptake / never regular,late or absent uptake of regular care,0.0338985415731837,-0.0189500110458631,0.0867470941922305,0.2086899897460719,22991,weighted linear model with HC3 robust SE,2,#C44D58
+component models,Loneliness,Late uptake or non-continuous care,late uptake or non-continuous regular care,0.0338985415731837,-0.0189500110458631,0.0867470941922305,0.2086899897460719,22991,weighted linear model with HC3 robust SE,2,#C44D58
 component models,Loneliness,Lifetime postponement,lifetime postponement of dental visits,0.0218736227534402,-0.0394760532259544,0.0832232987328349,0.4846733686702333,22991,weighted linear model with HC3 robust SE,3,#C44D58
 component models,CASP-12,No regular childhood care,no regular childhood dental care,-0.0479896604793514,-0.5694348110728753,0.4734554901141724,0.8568546610938218,22996,weighted linear model with HC3 robust SE,0,#E4B363
 component models,CASP-12,No stable adult regular care,no stable adult regular care,-0.4594075963140361,-1.6346068311250752,0.7157916384970028,0.4435650591939264,22996,weighted linear model with HC3 robust SE,1,#E4B363
-component models,CASP-12,Late uptake / never regular,late or absent uptake of regular care,0.1737374685651783,-0.6267882050064306,0.9742631421367872,0.6705673585751144,22996,weighted linear model with HC3 robust SE,2,#E4B363
+component models,CASP-12,Late uptake or non-continuous care,late uptake or non-continuous regular care,0.1737374685651783,-0.6267882050064306,0.9742631421367872,0.6705673585751144,22996,weighted linear model with HC3 robust SE,2,#E4B363
 component models,CASP-12,Lifetime postponement,lifetime postponement of dental visits,0.2611180262533131,-0.3999725383496045,0.9222085908562307,0.4388432849553817,22996,weighted linear model with HC3 robust SE,3,#E4B363

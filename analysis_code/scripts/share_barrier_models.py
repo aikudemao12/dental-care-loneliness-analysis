@@ -22,9 +22,16 @@ BARRIER_DEFINITIONS = {
 
 def as_binary_indicator(series: pd.Series) -> pd.Series:
     if pd.api.types.is_numeric_dtype(series):
-        return series.fillna(0).gt(0).astype(int)
+        values = pd.to_numeric(series, errors="coerce")
+        out = pd.Series(float("nan"), index=series.index, dtype=float)
+        out.loc[values.eq(0)] = 0.0
+        out.loc[values.eq(1)] = 1.0
+        return out
     cleaned = series.astype(str).str.strip().str.lower()
-    return cleaned.isin({"1", "yes", "true", "y"}).astype(int)
+    out = pd.Series(float("nan"), index=series.index, dtype=float)
+    out.loc[cleaned.isin({"0", "no", "false", "n"})] = 0.0
+    out.loc[cleaned.isin({"1", "yes", "true", "y"})] = 1.0
+    return out
 
 
 def ensure_barrier_indicators(frame: pd.DataFrame) -> pd.DataFrame:
@@ -40,19 +47,14 @@ def ensure_barrier_indicators(frame: pd.DataFrame) -> pd.DataFrame:
             )
         item_frame = pd.concat([as_binary_indicator(frame[column]) for column in item_columns], axis=1)
         frame[barrier] = item_frame.max(axis=1)
+        frame.loc[item_frame.notna().sum(axis=1).eq(0), barrier] = float("nan")
     return frame
 
 
 def dental_disadvantage_mask(frame: pd.DataFrame) -> pd.Series:
-    if "has_dental_disadvantage" in frame.columns:
-        return as_binary_indicator(frame["has_dental_disadvantage"]).eq(1)
-    if "disadvantage_score" in frame.columns:
-        return pd.to_numeric(frame["disadvantage_score"], errors="coerce").gt(0)
-    if "disadvantage_group" in frame.columns:
-        return frame["disadvantage_group"].astype(str).ne("low_0_1")
-    raise ValueError(
-        "SHARE barrier models require has_dental_disadvantage, disadvantage_score or disadvantage_group."
-    )
+    if "disadvantage_score" not in frame.columns:
+        raise ValueError("SHARE barrier models require the derived disadvantage_score column.")
+    return pd.to_numeric(frame["disadvantage_score"], errors="coerce").ge(2)
 
 
 def main() -> None:
@@ -62,14 +64,17 @@ def main() -> None:
 
     rows = []
     covariates = ["r7agey", "female", "education_level", "bmi", "chronic_burden", "country"]
-    base_columns = ["analysis_eligible_loneliness", "r8lnlys3", "r8wtresp", *covariates]
+    base_columns = ["r8lnlys3", "r8wtresp", *covariates]
     restricted = frame.loc[
         frame["analysis_eligible_loneliness"].eq(1) & dental_disadvantage_mask(frame)
     ].copy()
 
+    # Use one common complete-case set across the three barrier domains. This
+    # prevents the reported N from changing by barrier and preserves missing
+    # barrier responses rather than treating them as no barrier.
+    complete_columns = [*base_columns, *BARRIER_DEFINITIONS]
+    analysis = positive_weight_complete_case(restricted, complete_columns, "r8wtresp")
     for barrier in BARRIER_DEFINITIONS:
-        columns = [*base_columns, barrier]
-        analysis = positive_weight_complete_case(restricted, columns, "r8wtresp")
         rows.append(
             weighted_linear_model(
                 analysis,

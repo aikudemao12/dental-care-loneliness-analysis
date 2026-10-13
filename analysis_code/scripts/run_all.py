@@ -12,6 +12,7 @@ SCRIPTS = [
     "scripts/charls_context_check.py",
     "scripts/klosa_context_check.py",
     "scripts/all_four_sensitivity.py",
+    "scripts/share_revision_checks.py",
 ]
 
 

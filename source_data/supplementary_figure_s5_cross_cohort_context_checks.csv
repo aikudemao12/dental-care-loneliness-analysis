@@ -1,9 +1,9 @@
 ﻿panel,dataset,display_label,outcome_label,estimate,lcl,ucl,p_value,n,model_type
-cross-cohort contextual affordability analysis,CHARLS,High out-of-pocket burden,Loneliness,-0.03725345720123273,-0.13623115829417942,0.06172424389171395,0.46069932478500275,8101,weighted linear model with HC3 robust SE
-cross-cohort contextual affordability analysis,CHARLS,High out-of-pocket burden,CESD-10,-0.19868667313298893,-0.8296155288884386,0.4322421826224607,0.5370929546591976,8248,weighted linear model with HC3 robust SE
+cross-cohort contextual affordability analysis,CHARLS,High dental out-of-pocket expenditure,Loneliness,-0.03725345720123273,-0.13623115829417942,0.06172424389171395,0.46069932478500275,8101,weighted linear model with HC3 robust SE
+cross-cohort contextual affordability analysis,CHARLS,High dental out-of-pocket expenditure,CESD-10,-0.19868667313298893,-0.8296155288884386,0.4322421826224607,0.5370929546591976,8248,weighted linear model with HC3 robust SE
 cross-cohort contextual affordability analysis,CHARLS,No dental visit,Loneliness,0.03920070941340917,-0.016438915174263824,0.09484033400108216,0.16731401531364642,8224,weighted linear model with HC3 robust SE
 cross-cohort contextual affordability analysis,CHARLS,No dental visit,CESD-10,-0.05192063573145125,-0.38748613203397775,0.2836448605710752,0.7616940349755202,8372,weighted linear model with HC3 robust SE
-cross-cohort contextual affordability analysis,KLoSA,High out-of-pocket burden,Loneliness,-0.085,-0.159,-0.01,0.025,6204,weighted linear model with HC3 robust SE
-cross-cohort contextual affordability analysis,KLoSA,High out-of-pocket burden,CESD-10,-0.22735540820828032,-0.6402112822009906,0.1855004657844299,0.2804399084300492,6204,weighted linear model with HC3 robust SE
+cross-cohort contextual affordability analysis,KLoSA,High dental out-of-pocket expenditure,Loneliness,-0.085,-0.159,-0.01,0.025,6204,weighted linear model with HC3 robust SE
+cross-cohort contextual affordability analysis,KLoSA,High dental out-of-pocket expenditure,CESD-10,-0.22735540820828032,-0.6402112822009906,0.1855004657844299,0.2804399084300492,6204,weighted linear model with HC3 robust SE
 cross-cohort contextual affordability analysis,KLoSA,No dental visit,Loneliness,0.0730107103133101,0.028981061543466,0.1170403590831541,0.0011538653768431,6210,weighted linear model with HC3 robust SE
 cross-cohort contextual affordability analysis,KLoSA,No dental visit,CESD-10,0.1407542296482056,-0.1221300461785802,0.4036385054749914,0.2939897501517567,6210,weighted linear model with HC3 robust SE

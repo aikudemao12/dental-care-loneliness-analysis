@@ -28,7 +28,7 @@ If inputs are stored elsewhere, set `COHORT_DATA_ROOT`, or set `SHARE_ANALYTIC_C
 
 1. `share_primary_models.py`: primary grouped and per-point SHARE models and the existing CASP-12 secondary model.
 2. `share_barrier_models.py`: three SHARE barrier models on their common complete-case subset.
-3. `charls_context_check.py` and `klosa_context_check.py`: outcome-specific contextual models with positive baseline respondent weights and positive-cost high-burden thresholds.
+3. `charls_context_check.py` and `klosa_context_check.py`: outcome-specific contextual models with positive baseline respondent weights and positive-cost high-expenditure thresholds.
 4. `all_four_sensitivity.py`: the unchanged grouped model restricted to all four observed exposure components.
 5. `share_revision_checks.py`: age 65/75 models, education-by-disadvantage summaries, the RH789 descriptive count audit and component-observation support.
 

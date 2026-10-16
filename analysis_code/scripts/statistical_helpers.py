@@ -34,7 +34,7 @@ def positive_cost_quantile(cost: pd.Series, quantile: float = 0.75) -> float:
 
 
 def positive_cost_burden(cost: pd.Series, quantile: float = 0.75) -> tuple[pd.Series, float]:
-    """Code high burden at a positive-cost quantile while preserving zeros."""
+    """Code high dental out-of-pocket expenditure at a positive-cost quantile while preserving zeros."""
     values = pd.to_numeric(cost, errors="coerce")
     threshold = positive_cost_quantile(values, quantile)
     burden = pd.Series(np.nan, index=values.index, dtype=float)

@@ -1,6 +1,6 @@
-# Life-course dental-care disadvantage and loneliness among older adults
+# Life-course dental-care disadvantage and loneliness among adults aged 50 years and older: a 26-country cohort analysis
 
-Analysis code and aggregate source data for **Life-course dental-care disadvantage and loneliness among older adults: a 26-country SHARE cohort analysis**.
+Analysis code and aggregate source data for **Life-course dental-care disadvantage and loneliness among adults aged 50 years and older: a 26-country cohort analysis**.
 
 ## Contents and access
 

@@ -81,7 +81,9 @@ def derive_share(harmonized: pd.DataFrame, history: pd.DataFrame) -> pd.DataFram
     frame["bmi"] = frame["r7bmi"]
     frame["married_partnered"] = partnered(frame["r7mstat"])
     frame["r6_smoke_ever"] = frame["r6smokev"].eq(1).astype(float).where(frame["r6smokev"].notna())
-    frame["r6_drink_freq"] = frame["r6drinkxw"]
+    # r6drinkxw is a binary indicator for alcohol use in the last 7 days.
+    frame["r6_recent_drinking"] = frame["r6drinkxw"]
+    frame["r6_drink_freq"] = frame["r6_recent_drinking"]  # legacy internal alias
     common = frame["r7agey"].ge(50) & frame[["disadvantage_score", "r8wtresp", "female", "education_level", "bmi", "chronic_burden"]].notna().all(axis=1)
     frame["analysis_eligible_loneliness"] = (common & frame["r8lnlys3"].notna()).astype(int)
     frame["analysis_eligible_casp"] = (common & frame[["r7casp12", "r8casp12"]].notna().all(axis=1)).astype(int)

@@ -1,3 +1,3 @@
 ﻿analysis_family,contrast,term,coef,std_err,p_value,ci_low,ci_high,n,model
-All four exposure components observed,Mid disadvantage vs low,"Mid vs low disadvantage",0.041371110567304026,0.019827325386541025,0.03692698389112126,0.002510266899926915,0.08023195423468113,22991,Weighted linear model with HC3 robust standard errors; primary adjustment set
-All four exposure components observed,High disadvantage vs low,"High vs low disadvantage",0.10589676841228046,0.03727763363108712,0.004500632833551288,0.032833949066470636,0.1789595877580903,22991,Weighted linear model with HC3 robust standard errors; primary adjustment set
+All four exposure components observed,Mid disadvantage vs low,Mid vs low disadvantage,0.035825767595128906,0.019794100745002458,0.07030796866261983,-0.00296995697143336,0.07462149216169117,30309,Weighted linear model with HC3 robust standard errors; primary adjustment set
+All four exposure components observed,High disadvantage vs low,High vs low disadvantage,0.07713786435679378,0.01737235698472861,8.984827444674255e-06,0.04308867034015285,0.1111870583734347,30309,Weighted linear model with HC3 robust standard errors; primary adjustment set

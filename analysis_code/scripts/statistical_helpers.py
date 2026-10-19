@@ -5,6 +5,7 @@ from pathlib import Path
 import numpy as np
 import pandas as pd
 import statsmodels.formula.api as smf
+from scripts.model_diagnostics import diagnose_fit
 
 
 def require_columns(frame: pd.DataFrame, columns: list[str]) -> None:
@@ -53,6 +54,7 @@ def weighted_linear_model(
     sample: str,
 ) -> pd.DataFrame:
     fit = smf.wls(formula=formula, data=frame, weights=frame[weight_col]).fit(cov_type="HC3")
+    diagnose_fit(fit, frame, weight_col)
     ci = fit.conf_int()
     rows = []
     for term in fit.params.index:
@@ -62,11 +64,11 @@ def weighted_linear_model(
                 "outcome": outcome,
                 "exposure": exposure,
                 "term": term,
-                "estimate": float(fit.params[term]),
-                "std_error": float(fit.bse[term]),
-                "ci_low": float(ci.loc[term, 0]),
-                "ci_high": float(ci.loc[term, 1]),
-                "p_value": float(fit.pvalues[term]),
+                "estimate": float(fit.params[term]) if term not in fit.nonestimable_terms else np.nan,
+                "std_error": float(fit.bse[term]) if term not in fit.nonestimable_terms else np.nan,
+                "ci_low": float(ci.loc[term, 0]) if term not in fit.nonestimable_terms else np.nan,
+                "ci_high": float(ci.loc[term, 1]) if term not in fit.nonestimable_terms else np.nan,
+                "p_value": float(fit.pvalues[term]) if term not in fit.nonestimable_terms else np.nan,
                 "n": int(fit.nobs),
                 "model": "weighted linear model with HC3 robust SE",
             }

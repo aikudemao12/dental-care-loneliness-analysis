@@ -1,2 +1,2 @@
-sample,n_postponers,n_count_observed,count_median,count_q25,count_q75,raw_zero_n,raw_999_n,use
-Primary low-disadvantage participants reporting postponement,622,530,2.0,1.0,3.0,5,2,Descriptive audit only; raw 0 and 999 retained; RH789 not part of score
+﻿sample,n_postponers,n_count_observed,count_median,count_q25,count_q75,raw_zero_n,raw_999_n,use
+Primary low-disadvantage participants reporting postponement,616,526,2.0,1.0,3.0,5,2,Descriptive audit only; raw 0 and 999 retained; RH789 not part of score

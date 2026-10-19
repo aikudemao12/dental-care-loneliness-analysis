@@ -7,12 +7,14 @@ from pathlib import Path
 
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
 SCRIPTS = [
+    "scripts/test_scoring.py",
     "scripts/share_primary_models.py",
     "scripts/share_barrier_models.py",
     "scripts/charls_context_check.py",
     "scripts/klosa_context_check.py",
     "scripts/all_four_sensitivity.py",
     "scripts/share_revision_checks.py",
+    "scripts/reproduce_source_data.py",
 ]
 
 

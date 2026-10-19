@@ -1,0 +1,23 @@
+metric,old,new,scope
+source_records,146546,146546,All harmonized SHARE records
+primary_n,30782,30797,Primary loneliness analysis
+primary_group_low_0_1,17710,17710,Primary loneliness analysis
+primary_group_mid_2,10647,3676,Primary loneliness analysis
+primary_group_high_3_4,2425,9411,Primary loneliness analysis
+allfour_primary_n,22516,30309,Primary loneliness analysis
+disadv_childhood_missing_n,101699,84381,All harmonized SHARE records
+disadv_adult_pattern_missing_n,84175,84175,All harmonized SHARE records
+disadv_late_uptake_missing_n,85690,85690,All harmonized SHARE records
+disadvantage_score_missing_n,84527,84440,All harmonized SHARE records
+disadvantage_component_nonmissing_missing_n,0,0,All harmonized SHARE records
+fixed_primary_group_low_0_1,17710,17710,Fixed previous primary sample
+fixed_primary_group_mid_2,10647,3676,Fixed previous primary sample
+fixed_primary_group_high_3_4,2425,9396,Fixed previous primary sample
+transition_low_0_1_to_low_0_1,0,17710,Participants retained in both primary samples
+transition_mid_2_to_mid_2,0,3676,Participants retained in both primary samples
+transition_mid_2_to_high_3_4,0,6971,Participants retained in both primary samples
+transition_high_3_4_to_high_3_4,0,2425,Participants retained in both primary samples
+fixed_score_2_to_3,0,6971,Fixed previous primary sample
+fixed_score_3_to_4,0,822,Fixed previous primary sample
+primary_added_n,0,15,New primary sample membership
+primary_removed_n,0,0,New primary sample membership

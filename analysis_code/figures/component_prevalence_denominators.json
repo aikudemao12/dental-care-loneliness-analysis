@@ -1,0 +1,17 @@
+{
+  "source_data_sha256": "794666989cadabd65c17494179214eb68b0658865a4da5df43e89ac7035884fb",
+  "primary_n": 30797,
+  "verified_from_rebuilt_input_sha256": "66d6bcfe82e814310bcf4cf033323bdb40acd8ef7f44a30fdb8c4e65b1cb1b9d",
+  "denominators": [
+    30782,
+    30796,
+    30349,
+    30773
+  ],
+  "source_prevalence_recomputed_for_verification": [
+    56.685837135051976,
+    41.07441130998997,
+    51.89539994741482,
+    9.354800382261157
+  ]
+}

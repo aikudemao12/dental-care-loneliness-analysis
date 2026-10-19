@@ -1,9 +1,9 @@
 ﻿variable,n_total,missing_n,missing_pct,missing_pct_display,domain,domain_order,missing_bin
-no regular childhood dental care,146546,101699,0.6939732234247267,69.39732234247266,Exposure,0,50-75
-life-course dental-care disadvantage group,146546,84106,0.5739221814310865,57.39221814310865,Exposure,0,50-75
-life-course dental-care disadvantage score,146546,84106,0.5739221814310865,57.39221814310865,Exposure,0,50-75
-late uptake or non-continuous regular care,146546,83982,0.573076030734377,57.3076030734377,Exposure,0,50-75
-no stable adult regular care,146546,83982,0.573076030734377,57.3076030734377,Exposure,0,50-75
+no regular childhood dental care,146546,84381,0.5757987253149182,57.579872531491816,Exposure,0,50-75
+life-course dental-care disadvantage group,146546,84440,0.5762013292754493,57.62013292754494,Exposure,0,50-75
+life-course dental-care disadvantage score,146546,84440,0.5762013292754493,57.62013292754494,Exposure,0,50-75
+late uptake or non-continuous regular care,146546,85690,0.584731074201957,58.47310742019571,Exposure,0,50-75
+no stable adult regular care,146546,84175,0.5743930233510297,57.43930233510297,Exposure,0,50-75
 lifetime postponement of dental visits,146546,83941,0.5727962551007875,57.279625510078745,Exposure,0,50-75
 Wave 7 loneliness score,146546,132929,0.9070803706685956,90.70803706685956,Outcome,1,75-100
 Wave 8 CASP-12 score,146546,94310,0.6435521952151543,64.35521952151542,Outcome,1,50-75

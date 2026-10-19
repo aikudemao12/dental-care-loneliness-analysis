@@ -2,7 +2,7 @@
 node,social_position,Social position and earlier-life resources,conceptual confounding/context node
 node,country_context,Country and service context,conceptual and model-adjusted context node
 node,dental_disadvantage,Life-course dental-care disadvantage,primary exposure
-node,later_loneliness,Later-life loneliness,primary outcome
+node,later_loneliness,Loneliness in adults aged 50 years and older,primary outcome
 node,oral_function,"Oral symptoms, function and appearance",plausible pathway
 node,barriers,Affordability and service barriers,barrier/pathway context
 node,health_literacy_self_efficacy,Health literacy and coping self-efficacy,plausible resource/pathway

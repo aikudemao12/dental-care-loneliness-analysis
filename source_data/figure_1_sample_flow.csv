@@ -1,7 +1,7 @@
 ﻿stage,retained_or_audit_step,n,exclusion_or_note
 Source population,Harmonised SHARE records,146546,
 Age eligibility,Aged 50 years or older,76242,"Age criterion not met or age unavailable; n=70,304"
-Exposure availability,Computable life-course dental-care disadvantage score,61530,"Incomplete disadvantage score; n=14,712"
-Outcome availability,Wave 8 loneliness outcome available,31644,"No linked Wave 8 loneliness outcome; n=29,886"
-Analytic sample,Primary complete-covariate loneliness sample,30908,Missing respondent weight or model covariates; n=736
+Exposure availability,Computable life-course dental-care disadvantage score,61196,"Incomplete disadvantage score; n=15,046"
+Outcome availability,Wave 8 loneliness outcome available,31527,"No linked Wave 8 loneliness outcome; n=29,669"
+Analytic sample,Primary complete-covariate loneliness sample,30797,Missing respondent weight or model covariates; n=730
 Overlap audit,Exposure score plus Wave 7 loneliness,0,Audit only; not an exclusion step

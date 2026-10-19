@@ -1,0 +1,46 @@
+﻿Characteristic,Overall,Low (0-1),Mid (2),High (3-4),Mid vs low ASD,High vs low ASD
+Sample structure,,,,,,
+Unweighted N,"30,797","17,710","3,676","9,411",,
+"Weighted sample share, %",100.0,48.6,13.5,37.9,,
+Countries represented,26,26,26,26,,
+Exposure construction,,,,,,
+Mean disadvantage score,1.579 (1.399),0.242 (0.428),2.000 (0.000),3.144 (0.351),5.809,7.413
+"No regular childhood dental care, %",56.7,20.2,71.0,98.3,1.185,2.617
+"No stable adult regular care, %",41.1,0.0,29.3,97.9,0.911,9.673
+"Late/absent uptake of regular care, %",51.9,0.0,96.5,100.0,7.452,—
+"Lifetime dental postponement, %",9.4,3.9,4.1,18.2,0.009,0.468
+Sociodemographic profile,,,,,,
+"Age, years",63.355 (9.420),62.660 (8.807),64.132 (9.527),63.970 (10.056),0.160,0.139
+"Age >=65 years, %",38.2,35.5,41.8,40.5,0.131,0.105
+"Age 50-64 years, %",61.8,64.5,58.2,59.5,0.131,0.105
+"Age 65-74 years, %",22.9,23.1,24.5,22.2,0.033,0.020
+"Age >=75 years, %",15.3,12.4,17.4,18.3,0.140,0.165
+"Female, %",53.3,58.6,48.4,48.2,0.206,0.209
+"Education level, mean (SD)",1.843 (0.739),2.078 (0.709),1.906 (0.745),1.521 (0.650),0.236,0.819
+"Lower education, %",79.3,70.7,76.5,91.4,0.131,0.547
+"Education category 1, %",36.3,21.5,32.9,56.5,0.258,0.769
+"Education category 2, %",43.0,49.2,43.5,34.8,0.113,0.294
+"Education category 3, %",20.7,29.3,23.5,8.6,0.131,0.547
+"Married or partnered, %",69.9,70.3,67.9,70.2,0.050,0.001
+"South/east Europe, %",57.6,42.9,56.1,77.0,0.266,0.741
+Health profile,,,,,,
+"BMI, kg/m2",26.954 (4.686),26.716 (4.645),26.769 (4.558),27.326 (4.760),0.011,0.130
+"BMI >=30 kg/m2, %",21.8,20.7,21.0,23.6,0.009,0.070
+Chronic disease burden,1.748 (1.579),1.663 (1.548),1.796 (1.529),1.840 (1.630),0.086,0.111
+"No chronic conditions, %",23.8,25.6,22.1,22.2,0.081,0.081
+"One chronic condition, %",28.8,29.7,26.7,28.4,0.068,0.029
+"Chronic burden >=2, %",47.4,44.7,51.2,49.4,0.130,0.096
+Data availability in analytic frame,,,,,,
+"Wave 6 ever-smoked proxy available, %",66.1,71.9,67.5,54.8,,
+"Wave 6 recent drinking indicator available, %",66.3,72.2,67.6,54.9,,
+"Wave 6 EURO-D available, %",66.4,72.2,67.6,54.9,,
+"Wave 6 prior loneliness available, %",65.5,71.5,66.6,53.7,,
+"Wave 6 complete proxy subset available, %",65.2,71.2,66.5,53.6,,
+"Wave 8 CASP-12 available, %",96.2,99.3,98.2,89.6,,
+"Wave 8 ADL available, %",99.9,99.9,100.0,99.9,,
+"Wave 8 IADL available, %",99.9,99.9,100.0,99.9,,
+Descriptive outcome context,,,,,,
+Wave 8 loneliness,1.321 (0.471),1.264 (0.420),1.316 (0.462),1.395 (0.523),0.118,0.276
+Wave 8 CASP-12,25.473 (6.231),26.616 (5.838),25.590 (6.288),23.707 (6.371),0.169,0.476
+Wave 8 ADL count,0.190 (0.703),0.151 (0.614),0.167 (0.619),0.248 (0.823),0.026,0.133
+Wave 8 IADL count,0.066 (0.355),0.044 (0.285),0.047 (0.284),0.099 (0.446),0.011,0.148

@@ -1,7 +1,8 @@
 """Build restricted analysis-ready CSVs locally from approved cohort CSVs.
 
-This preserves the manuscript scoring algorithm, including structural skips;
-it does not fill or reinterpret missing retrospective responses.
+This implements evidence-based zero/one coding for the corrected score.
+Verified never-regular-care skips imply childhood disadvantage; unknown
+retrospective responses remain missing.
 """
 from __future__ import annotations
 
@@ -21,20 +22,25 @@ from config.paths import PATHS
 CONDITIONS = ["hibpe", "diabe", "cancre", "lunge", "hearte", "stroke", "arthre", "psyche", "hchole", "parkine", "catracte", "ulcere", "kidneye"]
 COMPONENTS = ["disadv_childhood", "disadv_adult_pattern", "disadv_late_uptake", "disadv_postponed"]
 BARRIERS = {"financial_barrier": ["rh026d1", "rh026d2", "rh026d3"], "structural_info_barrier": ["rh026d4", "rh026d5", "rh026d7"], "attitudinal_barrier": ["rh026d6", "rh026d8"]}
-SHARE_COLUMNS = ["mergeid", "country", "rabyear", "ragender", "raeducl", "r7agey", "r7bmi", "r7mstat", "r7lnlys3", "r8lnlys3", "r7casp12", "r8casp12", "r8wtresp", "r6smokev", "r6drinkxw", "r6eurod", "r6lnlys3"] + ["r7" + name for name in CONDITIONS]
+SHARE_COLUMNS = ["mergeid", "country", "rabyear", "ragender", "raeducl", "r7agey", "r7bmi", "r7mstat", "r7lnlys3", "r8lnlys3", "r7casp12", "r8casp12", "r8wtresp", "r6smokev", "r6drinkxw", "r6eurod", "r6lnlys3", "r7smoken", "r7drinkxw", "r7adla", "r8adla", "r7iadla", "r8iadla", "r7eurod"] + ["r7" + name for name in CONDITIONS]
 RH_COLUMNS = ["mergeid", "rh015_", "rh016_", "rh017_", "rh018_", "rh788_", "rh789_"] + [f"rh026d{i}" for i in range(1, 9)]
 
 
 def read_source(path: Path, columns: list[str], identifier: str, prefix: str = "") -> pd.DataFrame:
     wanted = set(columns) | {prefix + column for column in columns}
-    frame = pd.read_csv(path, usecols=lambda name: name in wanted, dtype={identifier: str, prefix + identifier: str}, low_memory=False)
+    frame = pd.read_csv(path, usecols=lambda name: name in wanted, dtype={identifier: str, prefix + identifier: str}, low_memory=False, keep_default_na=False)
     if prefix:
         frame = frame.rename(columns={name: name.removeprefix(prefix) for name in frame.columns})
     absent = set(columns) - set(frame.columns)
     if absent:
         raise ValueError(f"Missing source variables: {', '.join(sorted(absent))}")
-    if frame[identifier].isna().any() or frame[identifier].duplicated().any():
+    if frame[identifier].isna().any() or frame[identifier].str.strip().eq('').any() or frame[identifier].duplicated().any():
         raise ValueError(f"The source identifier {identifier} must be nonmissing and unique.")
+    # Capture actual empty source cells BEFORE negative response codes or text
+    # unknowns are converted to NaN. A cleaned NaN alone is not skip evidence.
+    for column in ['rh016_', 'rh018_']:
+        if column in frame:
+            frame[column.rstrip('_') + '_raw_blank'] = frame[column].astype(str).str.strip().eq('')
     numeric = [column for column in columns if column != identifier]
     frame[numeric] = frame[numeric].apply(pd.to_numeric, errors="coerce")
     frame[numeric] = frame[numeric].where(frame[numeric].ge(0))
@@ -54,16 +60,23 @@ def derive_share(harmonized: pd.DataFrame, history: pd.DataFrame) -> pd.DataFram
     ever = binary_yes_no(frame["rh015_"])
     continuity = binary_yes_no(frame["rh018_"])
     frame["disadv_childhood"] = 1 - binary_yes_no(frame["rh016_"])
-    stable = (ever.eq(1) & continuity.eq(1)).astype(float)
-    stable.loc[ever.isna() & continuity.isna()] = np.nan
-    frame["disadv_adult_pattern"] = 1 - stable
+    raw_blank = lambda name: frame[name].eq(True) if name in frame else pd.Series(False, index=frame.index)
+    structural_childhood_skip = (frame['rh015_'].eq(5) & frame['rh016_'].isna()
+                                 & frame['rh018_'].isna()
+                                 & raw_blank('rh016_raw_blank') & raw_blank('rh018_raw_blank'))
+    frame.loc[structural_childhood_skip, 'disadv_childhood'] = 1.0
+    adult = pd.Series(np.nan, index=frame.index, dtype=float)
+    adult.loc[ever.eq(1) & continuity.eq(1)] = 0.0
+    adult.loc[ever.eq(0) | continuity.eq(0)] = 1.0
+    frame["disadv_adult_pattern"] = adult
     start = frame["rh017_"] - frame["rabyear"]
     frame["regular_dental_start_age"] = start.where(start.between(0, 100))
-    # RH018 is continuity since initiation. Preserve the submitted algorithm:
-    # non-continuity contributes to this component even after early initiation.
-    late = pd.Series(0.0, index=frame.index)
+    # RH017 is structurally skipped after childhood initiation. A zero requires
+    # evidence of early initiation AND continuity; unknown responses stay missing.
+    late = pd.Series(np.nan, index=frame.index, dtype=float)
+    early = frame["rh016_"].eq(1) | frame["regular_dental_start_age"].le(25)
+    late.loc[early & continuity.eq(1)] = 0.0
     late.loc[frame["regular_dental_start_age"].gt(25) | ever.eq(0) | continuity.eq(0)] = 1.0
-    late.loc[frame["regular_dental_start_age"].isna() & ever.isna() & continuity.isna()] = np.nan
     frame["disadv_late_uptake"] = late
     frame["disadv_postponed"] = binary_yes_no(frame["rh788_"])
     frame["disadvantage_component_nonmissing"] = frame[COMPONENTS].notna().sum(axis=1)
@@ -84,6 +97,10 @@ def derive_share(harmonized: pd.DataFrame, history: pd.DataFrame) -> pd.DataFram
     # r6drinkxw is a binary indicator for alcohol use in the last 7 days.
     frame["r6_recent_drinking"] = frame["r6drinkxw"]
     frame["r6_drink_freq"] = frame["r6_recent_drinking"]  # legacy internal alias
+    if "r7smoken" in frame:
+        frame["current_smoker"] = frame["r7smoken"].eq(1).astype(float).where(frame["r7smoken"].notna())
+    if "r7drinkxw" in frame:
+        frame["drink_freq"] = frame["r7drinkxw"]
     common = frame["r7agey"].ge(50) & frame[["disadvantage_score", "r8wtresp", "female", "education_level", "bmi", "chronic_burden"]].notna().all(axis=1)
     frame["analysis_eligible_loneliness"] = (common & frame["r8lnlys3"].notna()).astype(int)
     frame["analysis_eligible_casp"] = (common & frame[["r7casp12", "r8casp12"]].notna().all(axis=1)).astype(int)

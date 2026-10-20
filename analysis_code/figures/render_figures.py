@@ -186,9 +186,9 @@ def refine(fig,name):
             for t in ax.texts:
                 if t.get_text().startswith('largest |delta|'):
                     t.set_position((0,1.005));t.set_ha('left');t.set_va('bottom')
-                elif t.get_text().startswith('pooled '):
+                elif t.get_text().startswith('LOO mean '):
                     t.set_transform(ax.transAxes);t.set_position((1,1.005));t.set_ha('right');t.set_va('bottom')
-        changes.append('Pooled and largest-delta notes occupy the existing gap below each panel title, clear of intervals.')
+        changes.append('Mean-of-LOO and largest-delta notes occupy the existing gap below each panel title, clear of intervals.')
     if 'S3_' in name:
         ax=fig.axes[0]; ax.set_yticklabels([t.get_text().replace('Lower education','Non-higher\neducation') for t in ax.get_yticklabels()])
         changes.append('Non-higher education label wraps locally; all subgroup intervals and sample sizes updated.')
@@ -272,12 +272,12 @@ def draw_figure1():
         if old in replacements and x<510 and y>350 or old=='Later-life loneliness':
             x=(s['bbox'][0]+s['bbox'][2])/2;ha='center'
         color=tuple(((s['color']>>c)&255)/255 for c in [16,8,0])
-        target(y).text(x,y+5 if old=='Later-life loneliness' else y,txt,fontsize=max(5,s['size']*scale),color=color,fontweight='bold' if s['flags']&16 else 'normal',ha=ha,va='baseline',clip_on=False)
+        target(y).text(x,y+5 if old=='Later-life loneliness' else y,txt,fontsize=max(6,s['size']*scale),color=color,fontweight='bold' if s['flags']&16 else 'normal',ha=ha,va='baseline',clip_on=False)
     def arrow(ax,pts,color,dashed=False):
         ax.add_patch(FancyArrowPatch(path=MplPath(pts,[MplPath.MOVETO]+[MplPath.LINETO]*(len(pts)-1)),arrowstyle='-|>',mutation_scale=4.5,lw=.65,color=color,linestyle=(0,(4,3)) if dashed else '-',clip_on=False))
     # Four explicit arrow meanings occupy the original legend footprint.
     for y,label,color,dash in [(10,'Grey: conceptual relations','#636B76',False),(22,'Red: study association','#B94A67',False),(34,'Blue: possible pathways','#2E7895',False),(46,'Dashed: residual contextual confounding','#65717D',True)]:
-        arrow(a,[(492,y),(520,y)],color,dash);a.text(529,y,label,fontsize=5,color='#65717D',va='center')
+        arrow(a,[(492,y),(520,y)],color,dash);a.text(529,y,label,fontsize=6,color='#65717D',va='center')
     # Exclusions branch between retained stages, then terminate at the matching box.
     for i,(prev_bottom,cy) in enumerate(zip([421.56,488.75,555.94,623.13],[466.83,534.02,601.21,668.40])):
         mid=prev_bottom+11.67

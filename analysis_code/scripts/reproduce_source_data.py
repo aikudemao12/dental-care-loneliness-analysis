@@ -155,7 +155,7 @@ def run(inputs,template_dir,output_dir,correct_metadata=True):
         t=HIGH if d.at[i,'contrast'].startswith('High') else MID
         r=res('leaveout_'+str(int(d.at[i,'omitted_country_code'])),t);set_result(d,i,r)
         # Preserve the original mean-of-leaveout-estimates reference.
-        ref=float(np.mean([res('leaveout_'+str(int(code)),t)['estimate'] for code in labels.omitted_country_code]));d.at[i,'pooled_reference']=ref;d.at[i,'delta_from_pooled']=r['estimate']-ref
+        ref=float(np.mean([res('leaveout_'+str(int(code)),t)['estimate'] for code in labels.omitted_country_code]));d.at[i,'mean_loo_reference']=ref;d.at[i,'delta_from_mean_loo']=r['estimate']-ref
     d=table('supplementary_figure_s3_subgroups')
     for i in d.index:set_result(d,i,res('subgroup_'+d.at[i,'subgroup_label'],HIGH if d.at[i,'contrast'].startswith('High') else MID))
     d=table('supplementary_figure_s4_components_joint')

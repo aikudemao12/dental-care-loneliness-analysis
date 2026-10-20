@@ -28,12 +28,12 @@ def draw_supplementary_s2():
     fig.suptitle("Supplementary Fig. S2 | Leave-one-country-out influence", x=0.02, y=0.985, ha="left", fontsize=10.5, fontweight="bold")
     for ax, (contrast, color, letter, title) in zip(axes, contrasts):
         df = loo[loo["contrast"] == contrast].copy()
-        df["abs_delta"] = df["delta_from_pooled"].abs()
-        df = df.sort_values("delta_from_pooled").reset_index(drop=True)
+        df["abs_delta"] = df["delta_from_mean_loo"].abs()
+        df = df.sort_values("delta_from_mean_loo").reset_index(drop=True)
         y = np.arange(len(df))
-        pooled = float(df["pooled_reference"].iloc[0])
+        reference = float(df["mean_loo_reference"].iloc[0])
         ax.axvline(0, color="#a9b1b8", linewidth=0.85)
-        ax.axvline(pooled, color=color, linestyle=(0, (4, 2)), linewidth=1.2)
+        ax.axvline(reference, color=color, linestyle=(0, (4, 2)), linewidth=1.2)
         for idx in range(len(df)):
             if idx % 2 == 0:
                 ax.axhspan(idx - 0.5, idx + 0.5, color="#f1f4f6", zorder=0)
@@ -50,11 +50,11 @@ def draw_supplementary_s2():
         ax.invert_yaxis()
         ax.set_title(title, loc="left", fontsize=9.3, pad=10)
         ax.text(-0.11, 1.065, letter, transform=ax.transAxes, fontsize=9.5, fontweight="bold", ha="left", va="bottom")
-        delta = df.loc[max_idx, "delta_from_pooled"]
+        delta = df.loc[max_idx, "delta_from_mean_loo"]
         country = df.loc[max_idx, "omitted_country_label"]
         ax.text(0.98, 0.035, f"largest |delta|: {country} {delta:+.3f}", transform=ax.transAxes,
                 ha="right", va="bottom", fontsize=6.4, color=COLORS["muted"])
-        ax.text(pooled + 0.004, -0.80, f"pooled {pooled:.3f}", color=color, fontsize=6.6, ha="left", va="center")
+        ax.text(reference + 0.004, -0.80, f"LOO mean {reference:.3f}", color=color, fontsize=6.6, ha="left", va="center")
         ax.grid(axis="x", color=COLORS["grid"], lw=0.75)
         ax.set_xlabel(BETA_LABEL, fontsize=8.5)
         if contrast == "Mid vs low":

@@ -2,7 +2,7 @@
 
 Analysis code and aggregate source data for **Life-course dental-care disadvantage and loneliness among adults aged 50 years and older: a 26-country cohort analysis**.
 
-Release: `EJPH-R1-20261019` (see `VERSION`). This release corrects the descriptive South/east Europe grouping by replacing Luxembourg with Greece and retaining all other memberships. The corresponding Table 1 and Supplementary Table S3 source rows have been regenerated. The grouping is used for descriptive summaries; models adjust for country. The operational country list is given in `analysis_code/README.md`.
+Release: `EJPH-R1-20261019-v2` (see `VERSION`). This version identifies the Figure S2 reference as the mean of the 26 leave-one-country-out estimates, without changing numerical results, and synchronises figure font settings with the supplementary code archive. It retains the correction to the descriptive South/east Europe grouping by replacing Luxembourg with Greece and retaining all other memberships. The corresponding Table 1 and Supplementary Table S3 source rows have been regenerated. The grouping is used for descriptive summaries; models adjust for country. The operational country list is given in `analysis_code/README.md`.
 
 ## Contents and access
 

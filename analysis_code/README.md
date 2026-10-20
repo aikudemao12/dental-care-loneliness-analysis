@@ -2,7 +2,7 @@
 
 The scripts write individual-level analysis-ready inputs only to a local data directory and report aggregate model/descriptive outputs. Approved access to each cohort's source data is required. Individual-level records must not be committed or redistributed.
 
-Version: `EJPH-R1-20261019`. The operational South/east Europe grouping used in Table 1 and Supplementary Table S3 comprises Spain (15), Italy (16), Greece (19), Czech Republic (28), Poland (29), Hungary (32), Portugal (33), Slovenia (34), Estonia (35), Croatia (47), Lithuania (48), Bulgaria (51), Cyprus (53), Latvia (57), Malta (59), Romania (61) and Slovakia (63). Portugal has no participants in the current primary sample. This release removes Luxembourg (31), includes Greece (19) and retains all other memberships. The grouping supplies descriptive percentages and standardised differences; regression adjustment uses country fixed effects.
+Version: `EJPH-R1-20261019-v2`. The operational South/east Europe grouping used in Table 1 and Supplementary Table S3 comprises Spain (15), Italy (16), Greece (19), Czech Republic (28), Poland (29), Hungary (32), Portugal (33), Slovenia (34), Estonia (35), Croatia (47), Lithuania (48), Bulgaria (51), Cyprus (53), Latvia (57), Malta (59), Romania (61) and Slovakia (63). Portugal has no participants in the current primary sample. This release removes Luxembourg (31), includes Greece (19) and retains all other memberships. The grouping supplies descriptive percentages and standardised differences; regression adjustment uses country fixed effects.
 
 ## Prepare local inputs
 
@@ -41,7 +41,7 @@ The RH789 audit retains nonnegative raw values, including 0 and 999, for descrip
 
 Aggregate source files supporting the final tables and figures are in `../source_data/`. Source variable definitions and the correction to the original constant high-cost indicators are documented in the manuscript supplement and repository README.
 
-The external thresholds are unweighted 75th percentiles among positive costs, calculated before outcome-specific complete-case filtering (CHARLS age ≥45 first; all KLoSA input records). `external_group_checks.json` records the resulting exposure-group counts and model-matrix ranks. The SHARE leave-one-country-out display retains the original reference: the mean of the 26 leave-one-country-out estimates for each contrast.
+The external thresholds are unweighted 75th percentiles among positive costs, calculated before outcome-specific complete-case filtering (CHARLS age ≥45 first; all KLoSA input records). `external_group_checks.json` records the resulting exposure-group counts and model-matrix ranks. The SHARE leave-one-country-out display retains the original reference: the mean of the 26 leave-one-country-out estimates for each contrast, stored as `mean_loo_reference`; `delta_from_mean_loo` records each deviation from this reference. Figure S2 labels it as the LOO mean.
 
 To regenerate only the aggregate source tables in a separate destination:
 

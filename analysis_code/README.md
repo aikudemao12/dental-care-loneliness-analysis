@@ -2,7 +2,7 @@
 
 The scripts write individual-level analysis-ready inputs only to a local data directory and report aggregate model/descriptive outputs. Approved access to each cohort's source data is required. Individual-level records must not be committed or redistributed.
 
-Version: `EJPH-R1-20261019-v2`. The operational South/east Europe grouping used in Table 1 and Supplementary Table S3 comprises Spain (15), Italy (16), Greece (19), Czech Republic (28), Poland (29), Hungary (32), Portugal (33), Slovenia (34), Estonia (35), Croatia (47), Lithuania (48), Bulgaria (51), Cyprus (53), Latvia (57), Malta (59), Romania (61) and Slovakia (63). Portugal has no participants in the current primary sample. This release removes Luxembourg (31), includes Greece (19) and retains all other memberships. The grouping supplies descriptive percentages and standardised differences; regression adjustment uses country fixed effects.
+Version: `EJPH-R1-20261019-v3`. The operational South/east Europe grouping used in Table 1 and Supplementary Table S3 comprises Spain (15), Italy (16), Greece (19), Czech Republic (28), Poland (29), Hungary (32), Portugal (33), Slovenia (34), Estonia (35), Croatia (47), Lithuania (48), Bulgaria (51), Cyprus (53), Latvia (57), Malta (59), Romania (61) and Slovakia (63). Portugal has no participants in the current primary sample. This release removes Luxembourg (31), includes Greece (19) and retains all other memberships. The grouping supplies descriptive percentages and standardised differences; regression adjustment uses country fixed effects.
 
 ## Prepare local inputs
 

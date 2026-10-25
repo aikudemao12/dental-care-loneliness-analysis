@@ -15,6 +15,7 @@ SCRIPTS = [
     "scripts/all_four_sensitivity.py",
     "scripts/share_revision_checks.py",
     "scripts/reproduce_source_data.py",
+    "scripts/discordant_start_age_sensitivity.py",
 ]
 
 

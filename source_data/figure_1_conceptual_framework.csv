@@ -5,7 +5,7 @@ node,dental_disadvantage,Life-course dental-care disadvantage,primary exposure
 node,later_loneliness,Loneliness in adults aged 50 years and older,primary outcome
 node,oral_function,"Oral symptoms, function and appearance",plausible pathway
 node,barriers,Affordability and service barriers,barrier/pathway context
-node,health_literacy_self_efficacy,Health literacy and coping self-efficacy,plausible resource/pathway
+node,health_literacy,Health literacy,plausible resource/pathway
 edge,social_position->dental_disadvantage,Social position to dental-care disadvantage,solid
 edge,social_position->later_loneliness,Social position to loneliness,dashed residual confounding
 edge,country_context->dental_disadvantage,Country/service context to dental-care disadvantage,solid
@@ -13,4 +13,4 @@ edge,country_context->later_loneliness,Country/service context to loneliness,das
 edge,dental_disadvantage->later_loneliness,Primary association tested,solid
 edge,dental_disadvantage->oral_function->later_loneliness,Oral symptoms/function pathway,solid conceptual pathway
 edge,dental_disadvantage->barriers->later_loneliness,Affordability/service barrier pathway,solid conceptual pathway
-edge,health_literacy_self_efficacy->later_loneliness,Psychosocial navigation/coping resource,dashed conceptual pathway
+edge,health_literacy->later_loneliness,Health-literacy pathway,dashed conceptual pathway
